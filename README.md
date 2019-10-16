@@ -1,4 +1,4 @@
-# nodejs API
+# valuemaids_backend API
 
 Installation
 ------------
@@ -6,5 +6,5 @@ npm install
 
 Run App
 -------
-node server.js
+npm start
 =======

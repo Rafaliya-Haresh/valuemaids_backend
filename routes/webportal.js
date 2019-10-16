@@ -1,22 +1,20 @@
 'use strict';
 
-var users = require('../controllers/users')
+var users = require('../controllers/users');
+var express = require('express');
+var router = express.Router();
 var cors = require('cors');
 
-module.exports = function(app) {
-	// --
-	// Product
+router.use(cors());
 
-	app.use(cors());
-	
-	app.get('/', function(req, res){
-		return res.send('NodeJS API working');
-	});
-	
-	app.post('/api/v1/appointment/create', users.addAppointment);
-	app.get('/api/v1/appointment', users.getAppointment);
-	app.post('/api/v1/user/signin', users.signin);
-	app.post('/api/v1/user/signup', users.signup);
-	app.get('/api/v1/user/logout', users.logout);
+router.get('/', function(req, res){
+	return res.send('NodeJS API working');
+});
 
-}
+router.post('/appointment/create', users.addAppointment);
+router.get('/appointment', users.getAppointment);
+router.post('/user/signin', users.signin);
+router.post('/user/signup', users.signup);
+router.get('/user/logout', users.logout);
+
+module.exports = router;

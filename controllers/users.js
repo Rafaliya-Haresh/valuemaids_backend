@@ -48,7 +48,7 @@ exports.addAppointment = function(req, res) {
 	if(err){
 		return res.send({status: false, message: msgArray});
 	}
-	Appointment.create(req.body,function(err, result){
+	Appointment.create(req.body, function(err, result){
 		if(err){
 			return res.status(400).send(err);
 		}

@@ -2,6 +2,7 @@ var express = require('express'),
 	app = express(),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
+	router = require('./routes/webportal'),
 	bodyParser = require('body-parser');
 
 // --
@@ -10,8 +11,7 @@ var express = require('express'),
 
 var dbURI = 'mongodb+srv://hari:hari@cluster0-d1hip.mongodb.net/valuemaids';
 
-mongoose.connect(dbURI, {useNewUrlParser: true}).then(
-  () => {
+mongoose.connect(dbURI, {useNewUrlParser: true}).then(() => {
 	console.log("Database connection established!");
   },
   err => {
@@ -39,7 +39,7 @@ require('./config/passport')();
 
 // --
 // Define routes/controller
-require('./routes/webportal')(app);
+app.use('/api/v1', router);
 
 // Start server
 app.listen(app.get('port'), function () {
