@@ -7,17 +7,7 @@ var express = require('express'),
 
 // --
 // Connect mongoose
-//mongoose.connect('mongodb://localhost:27017/valuemaids'); 
-
-var dbURI = 'mongodb+srv://hari:hari@cluster0-d1hip.mongodb.net/valuemaids';
-
-mongoose.connect(dbURI, {useNewUrlParser: true}).then(() => {
-	console.log("Database connection established!");
-  },
-  err => {
-    console.log("Error connecting Database instance due to: ", err);
-  }
-);
+mongoose.connect('mongodb://ec2-3-231-64-29.compute-1.amazonaws.com:27017/valuemaids'); 
 
 // Set express configs
 process.env.PORT = process.env.PORT || 5000;
